@@ -48,20 +48,26 @@ In order to remediate this issue, the following is recommended:
 
    - https://sems.uni-pr.edu/Account/Login 
 
-<img src="/images/f1.png" alt="Logo" height="40">
-Figure 1: Authenticating using any Student User Account_ 
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/images/f1.png" alt="Figure 1" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">
+  <p><strong>Figure 1:</strong> Authenticating using any Student User Account</p>
+</div>
 
 - Next, while intercepting browser traffic using a proxy tool (in our case Burp Suite) navigate to the following endpoint and click the “Modify” button:. 
 
    - https://sems.uni-pr.edu/profile 
 
-<img src="/images/f2.png" alt="Logo" height="40">
-Figure 2: Intercepting POST request responsible for profile edit_ 
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/images/f2.png" alt="Figure 2" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">
+  <p><strong>Figure 2:</strong> Intercepting the POST request responsible for profile edit</p>
+</div>
 
 - In Burp Suite, right click the intercepted _POST /Profile/EditProfile_ request and select Send to Repeater (or use the shortcut CTRL + R). 
 
-<img src="/images/f3.png" alt="Logo" height="40">
-Figure 3: Sending the intercepted request to Burp Repeater_ 
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/images/f3.png" alt="Figure 3" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">
+  <p><strong>Figure 3:</strong> Sending the intercepted request to Burp Repeater</p>
+</div>
 
 - In the Repeater tab, observe the 2 vulnerable ID parameters used for this vulnerability: 
 
@@ -95,8 +101,10 @@ Also observe the “Email” and “GroupId” parameters which will be used for
 
       - Email -> [ Any Email we control ] 
 
-<img src="/images/f4.png" alt="Logo" height="40">
-Figure 4: Unauthorized Profile Update towards our victim SEMS account_ 
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/images/f4.png" alt="Figure 4" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">
+  <p><strong>Figure 4:</strong> Unauthorized profile update targeting the victim account</p>
+</div> 
 
 - After clicking Send, observe the 302-Found (and after Follow Redirection the 200-OK) response messages, which indicates that the change was successfully done. 
 
@@ -104,23 +112,31 @@ Figure 4: Unauthorized Profile Update towards our victim SEMS account_
 
 - "Forgot Your Password" feature: https://sems.uni pr.edu/ResetPassword 
 
-<img src="/images/f5.png" alt="Logo" height="40">
-Figure 5: Submitting a Reset Password in our victim with our controlled-email account_ 
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/images/f5.png" alt="Figure 5" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">
+  <p><strong>Figure 5:</strong> Submitting a password reset for the victim account</p>
+</div>
 
 - Observe the successful message indicating that the link for password-reset was sent to our email address: 
 
-<img src="/images/f6.png" alt="Logo" height="40">
-Figure 6: Successful Message Indicating the email was sent to our email account_ 
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/images/f6.png" alt="Figure 6" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">
+  <p><strong>Figure 6:</strong> Success message — reset link sent to attacker-controlled email</p>
+</div> 
 
 - Now in our email, we can see that the email with the link to change the password was sent and we can successfully reset it to confirm the vulnerability. 
 
-<img src="/images/f7.png" alt="Logo" height="40">
-Figure 7: Link to Reset Password of Victim was Successfully Sent to Our Email Account_ 
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/images/f7.png" alt="Figure 7" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">
+  <p><strong>Figure 7:</strong> Reset link received in attacker-controlled inbox</p>
+</div>
 
 - Lastly, after successfully resetting the password. We can login and impersonate our victim account. _[ For testing Purposes the Password set was: Testi123. ]_ 
 
-<img src="/images/f8.png" alt="Logo" height="40">
-Figure 3: Profile of Victim - Confirming the Zero-Click ATO_ 
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/images/f8.png" alt="Figure 8" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">
+  <p><strong>Figure 8:</strong> Successful login as the victim (Zero-Click Account Takeover confirmed)</p>
+</div> 
 <br>
 
 ## Severity 
