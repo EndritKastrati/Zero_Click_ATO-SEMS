@@ -8,7 +8,7 @@
 
 ## Description 
 
-- During legal security testing of Universiteti i Prishtines “Hasan Prishtina”, main platform: SEMS (Sistemi Elektronik i Menaxhimit te Studenteve). A critical vulnerability was discovered allowing for complete, zero-click professor’s account takeover by chaining an arbitrary email change with the application's forgot-password recovery mechanism. Specifically, the profile update function **POST /Profile/EditProfile** fails to properly validate identity before updating an authenticated user's email address. By manipulating request parameters, an attacker can silently change a victim's registered email address to one email which is under the attacker's control. 
+During legal security testing of Universiteti i Prishtines “Hasan Prishtina”, main platform: SEMS (Sistemi Elektronik i Menaxhimit te Studenteve). A critical vulnerability was discovered allowing for complete, zero-click professor’s account takeover by chaining an arbitrary email change with the application's forgot-password recovery mechanism. Specifically, the profile update function **POST /Profile/EditProfile** fails to properly validate identity before updating an authenticated user's email address. By manipulating request parameters, an attacker can silently change a victim's registered email address to one email which is under the attacker's control. 
 
 Once the email modification is successfully executed without the victim's knowledge or interaction, the attacker can leverage the standard "Forgot Password" feature. Because the account's primary email has been altered, the password reset token is routed directly to the attacker, allowing them to reset the credentials and gain full control of the account. This represents a critical failure in state-changing transaction verification and account lifecycle security, posing a severe risk to user data integrity and confidentiality. 
 <br>
@@ -16,7 +16,7 @@ Once the email modification is successfully executed without the victim's knowle
 
 ## Impact 
 
-- The successful exploitation of this vulnerability has critical consequences for the institution's Students Electronic Management System (SEMS) and the university community as a whole. Although the proof-of-concept (PoC) will be demonstrated below on a specific faculty account, the underlying systemic flaw extends to the entire user base of over ~158,000 students, professors, and administrative staff. Impact Includes: 
+The successful exploitation of this vulnerability has critical consequences for the institution's Students Electronic Management System (SEMS) and the university community as a whole. Although the proof-of-concept (PoC) will be demonstrated below on a specific faculty account, the underlying systemic flaw extends to the entire user base of over ~158,000 students, professors, and administrative staff. Impact Includes: 
 
 - **Compromise of Academic and Institutional Integrity:** Unauthorized access to a professor or staff account allows an attacker to manipulate final grades, modify exam schedules, alter course enrollments, and tamper with official academic records. This directly undermines the main function and trust and validity of the institution's grading and evaluation systems. 
 
@@ -29,7 +29,7 @@ Once the email modification is successfully executed without the victim's knowle
 
 ## Remediation 
 
-- In order to remediate this issue, the following is recommended: 
+In order to remediate this issue, the following is recommended: 
 
    - **Require re-authentication for sensitive account changes:** Enforce the validation of the user's current password or a multi-factor authentication (MFA) challenge prior to updating critical account fields like email addresses or phone numbers. 
 
@@ -122,7 +122,7 @@ Figure 7: Link to Reset Password of Victim was Successfully Sent to Our Email Ac
 
 ## Severity 
 
-- This vulnerability is classified as **Critical** severity/rating with a score of **9.9** (from 1-10) due to the following metric breakdown ( _CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H_ ) 
+This vulnerability is classified as **Critical** severity/rating with a score of **9.9** (from 1-10) due to the following metric breakdown ( _CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H_ ) 
 
    - **Attack Vector: Network (AV:N):** The exploit can be executed remotely over the internet without requiring physical or local network access. 
 
@@ -139,9 +139,8 @@ Figure 7: Link to Reset Password of Victim was Successfully Sent to Our Email Ac
 
 ## Concluding Comments 
 
-- As both a penetration tester and a student at the University of Prishtina, my primary objective in conducting this assessment is to proactively identify and help remediate security flaws before they can be exploited by malicious attackers 
-
-   - Securing the SEMS platform is vital to protecting the academic integrity, administrative continuity, and private data of over 158,000 peers, professors, and staff members who rely on this infrastructure daily.
+As both a penetration tester and a student at the University of Prishtina, my primary objective in conducting this assessment is to proactively identify and help remediate security flaws before they can be exploited by malicious attackers.
+Securing the SEMS platform is vital to protecting the academic integrity, administrative continuity, and private data of over 158,000 peers, professors, and staff members who rely on this infrastructure daily.
 <br>
 <br>
 
