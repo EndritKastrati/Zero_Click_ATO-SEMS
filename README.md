@@ -3,8 +3,8 @@
     <img src="/images/logo_up.png" alt="Logo" height="40">
   </a>
 
-# Universiteti i Prishtines (SEMS) Zero-Click Account Takeover Vulnerability 
-<br>
+<h2 align="center">Universiteti i Prishtines (SEMS) Zero-Click Account Takeover Vulnerability</h3>
+</p>
 
 ## Description 
 
