@@ -66,7 +66,7 @@ In order to remediate this issue, the following is recommended:
 
 <div style="text-align: center; margin: 20px 0;">
   <img src="/images/f3.png" alt="Figure 3" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">
-  <p><strong>Figure 3:</strong> Sending the intercepted request to Burp Repeater</p>
+  <p style="text-align: center; margin-top: 10px;"><strong>Figure 3:</strong> Sending the intercepted request to Burp Repeater</p>
 </div>
 
 - In the Repeater tab, observe the 2 vulnerable ID parameters used for this vulnerability: 
