@@ -118,6 +118,9 @@ Figure 6: Successful Message Indicating the email was sent to our email account_
 Figure 7: Link to Reset Password of Victim was Successfully Sent to Our Email Account_ 
 
 - Lastly, after successfully resetting the password. We can login and impersonate our victim account. _[ For testing Purposes the Password set was: Testi123. ]_ 
+
+<img src="/images/f8.png" alt="Logo" height="40">
+Figure 3: Profile of Victim - Confirming the Zero-Click ATO_ 
 <br>
 
 ## Severity 
