@@ -50,7 +50,7 @@ In order to remediate this issue, the following is recommended:
 
 <div style="text-align: center; margin: 20px 0;">
   <img src="/images/f1.png" alt="Figure 1" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">
-  <p><strong>Figure 1:</strong> Authenticating using any Student User Account</p>
+  <p style="text-align: center; margin: 20px 0;"><strong>Figure 1:</strong> Authenticating using any Student User Account</p>
 </div>
 
 - Next, while intercepting browser traffic using a proxy tool (in our case Burp Suite) navigate to the following endpoint and click the “Modify” button:. 
